@@ -1,0 +1,52 @@
+{% extends 'networkAnalyze/network_analyze_index.html' %}
+{% load staticfiles %}
+{% block title %}参数配置{% endblock %}
+
+{% block content %}
+    <form action="#" method="post">
+        {% csrf_token %}
+        <h1 class="text-light">设置网络评估指标阈值<span class="mif-earth2 mif-ani-heartbeat place-right"></span></h1>
+        <hr class="thin bg-grayLighter">
+        <br/><br/><br/>
+        <div class="input-control range">
+            <h5>超大接入环阈值</h5>
+            <div class="slider"
+                 data-target="#slider_input"
+                 data-role="slider"
+                 data-max-value="20"
+                 data-min-value="0"></div>
+            <div class="input-control text">
+                <input id="slider_input" value="0">
+            </div>
+        </div>
+        <div class="input-control range">
+            <h5>超大汇聚节点阈值</h5>
+            <div class="slider"
+                 data-target="#bcne_slider_input"
+                 data-role="slider"
+                 data-max-value="100"
+                 data-min-value="0"></div>
+            <div class="input-control text">
+                <input id="bcne_slider_input" value="0">
+            </div>
+        </div>
+        <div class="input-control range">
+            <h5>长单链阈值</h5>
+            <div class="slider"
+                 data-target="#lsc_slider_input"
+                 data-role="slider"
+                 data-max-value="10"
+                 data-min-value="0"></div>
+            <div class="input-control text">
+                <input id="lsc_slider_input" value="0">
+            </div>
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/>
+        <hr class="thin bg-grayLighter">
+        <div class="form-actions">
+            <button type="submit" class="button primary loading-cube lighten">保存配置</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="button primary loading-cube lighten">恢复默认配置</button>
+        </div>
+    </form>
+{% endblock %}

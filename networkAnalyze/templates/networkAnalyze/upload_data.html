@@ -1,0 +1,32 @@
+{% extends 'networkAnalyze/network_analyze_index.html' %}
+{% load staticfiles %}
+{% block title %}上传数据源{% endblock %}
+
+{% block content %}
+    <form enctype="multipart/form-data" action="/networkAnalyze/upload/" method="post">
+        {% csrf_token %}
+        <h1 class="text-light">导入网管实时监控数据<span class="mif-earth2 mif-ani-heartbeat place-right"></span></h1>
+        <hr class="thin bg-grayLighter">
+        <br/><br/><br/>
+        <div class="input-control file flex-align-center" data-role="input">
+            <label>选择网元信息表</label>
+            <input type="file" name="neinfo" accept="text/csv">
+            <button class="button"><span class="mif-folder"></span></button>
+        </div>
+        <div class="input-control file" data-role="input">
+            <label>选择纤缆连接关系表</label>
+            <input type="file" name="ne2ne" accept="text/csv">
+            <button class="button"><span class="mif-folder"></span></button>
+        </div>
+        <div class="input-control file" data-role="input">
+            <label>选择起始汇聚网元信息表</label>
+            <input type="file" name="cneinfo" accept="text/csv">
+            <button class="button"><span class="mif-folder"></span></button>
+        </div>
+        <br/><br/>
+        <hr class="thin bg-grayLighter">
+        <div class="form-actions">
+            <button type="submit" class="button primary loading-cube lighten">执行上传</button>
+        </div>
+    </form>
+{% endblock %}

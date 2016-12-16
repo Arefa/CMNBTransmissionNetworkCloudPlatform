@@ -1,0 +1,40 @@
+{% extends 'networkAnalyze/index.html' %}
+{% load staticfiles %}
+{% block title %}网络安全评估{% endblock %}
+{% block style %}
+    <link href="{% static 'networkAnalyze/css/main.css' %}" rel="stylesheet">
+{% endblock %}
+{% block contents %}
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li class="active"><a href="/networkAnalyze/upload/">
+                            <span class="mif-cloud-upload icon"></span>
+                            <span class="title">上传数据源</span>
+                        </a></li>
+                        <li><a href="/networkAnalyze/evaluate/">
+                            <span class="mif-search icon"></span>
+                            <span class="title">评估分析</span>
+                        </a></li>
+                        <li><a href="/networkAnalyze/config/">
+                            <span class="mif-cog icon"></span>
+                            <span class="title">参数配置</span>
+                        </a></li>
+                        <li><a href="/networkAnalyze/autotools/">
+                            <span class="mif-cogs icon"></span>
+                            <span class="title">自动化工具</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'networkAnalyze/js/main.js' %}"></script>
+{% endblock %}

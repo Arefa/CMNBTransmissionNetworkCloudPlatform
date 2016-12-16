@@ -1,0 +1,42 @@
+{% extends 'networkAnalyze/base.html' %}
+{% load staticfiles %}
+
+{% block title %}登录{% endblock %}
+
+{% block style %}
+    <link href="{% static 'networkAnalyze/css/signin.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <body class="bg-darkTeal">
+    <div class="login-form padding20 block-shadow">
+        <form method="post" action="/accounts/login/">
+            <h3 class="text-light"><span class="mif-earth2 icon"></span>&nbsp;宁波移动传输网云平台</h3>
+            <hr class="thin"/>
+            <br/>
+            {% csrf_token %}
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">用户名:</label>
+                <input type="text" name="username" id="user_login">
+                <button class="button helper-button clear"><span class="mif-cross"></span></button>
+            </div>
+            <br/>
+            <br/>
+            <div class="input-control password full-size" data-role="input">
+                <label for="user_password">密码:</label>
+                <input type="password" name="password" id="user_password">
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+            <br/>
+            <br/>
+            <div class="form-actions">
+                <button type="submit" class="button primary block-shadow loading-pulse lighten">登录</button>
+                <button type="button" class="button link" href="/admin/">进入后台管理</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'networkAnalyze/js/signin.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'networkAnalyze/favicon.ico' %}"/>
+
+    <title>{% block title %}{% endblock %}&nbsp;|&nbsp;宁波移动传输网云平台</title>
+
+    <link href="{% static 'networkAnalyze/css/metro.css' %}" rel="stylesheet">
+    <link href="{% static 'networkAnalyze/css/metro-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'networkAnalyze/css/metro-responsive.css' %}" rel="stylesheet">
+    {% block style %}{% endblock %}
+
+</head>
+{% block body %}
+    <body class="bg-steel">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a href="/networkAnalyze/" class="app-bar-element branding"><span class="mif-earth2 icon"></span>&nbsp;宁波移动传输网云平台</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            {% block appbarli %}{% endblock %}
+        </ul>
+
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-user"></span> 龙澜</span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark"
+                 data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light"><span class="mif-cog"></span>&nbsp;快速设置</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white1 fg-hover-yellow"><span class="mif-user-check"></span>&nbsp;个人信息</a>
+                    </li>
+                    <li><a href="" class="fg-white2 fg-hover-yellow"><span class="mif-lock"></span>&nbsp;安全</a></li>
+                    <li><a href="/networkAnalyze/signout/" class="fg-white3 fg-hover-yellow"><span
+                            class="mif-exit"></span>&nbsp;退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block contents %}{% endblock %}
+
+{% endblock %}
+
+<script src="{% static 'networkAnalyze/js/jquery-2.2.4.js' %}"></script>
+<script src="{% static 'networkAnalyze/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'networkAnalyze/js/metro.js' %}"></script>
+{% block script %}{% endblock %}
+
+</body>
+</html>
